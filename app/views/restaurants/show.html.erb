@@ -2,4 +2,20 @@
 
 <h2><%= @restaurant.name %></h2>
 
+<p>Summary:<%= @restaurant.description  %></p>
+<p>Adress:<%= @restaurant.address  %></p>
+<p>Category:<%= @restaurant.category  %></p>
+
+<h3><%= link_to "post review", "/restaurants/#{params[:id]}/reviews/new" %></h3>
+
+<ul>
+  <% @reviews.each do |review| %>
+  <li>
+    <p>review:<%= review.content  %></p>
+    <p>rating:<%= review.rating  %></p>
+  </li>
+  <% end %>
+</ul>
+
+
 <h2><%= link_to "home", restaurants_path %></h2>

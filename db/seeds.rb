@@ -7,14 +7,20 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
+Restaurant.destroy_all
 
-100.times do
-  restaurant = Restaurant.new(
+10.times do
+  restaurant = Restaurant.create!(
     name: Faker::Company.bs,
     address: Faker::Address.street_address,
     phone_number: Faker::PhoneNumber.cell_phone,
-    category: Faker::Commerce.department,
-    description: Faker::Hipster.sentence(25),
+    category: "italian",
+    description: Faker::Hipster.sentence(25)
     )
-  restaurant.save
+
+  review = Review.create!(
+    content: "bla bla ",
+    rating: 3,
+    restaurant: restaurant
+    )
 end
